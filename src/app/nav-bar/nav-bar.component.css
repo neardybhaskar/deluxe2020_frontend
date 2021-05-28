@@ -1,0 +1,62 @@
+.logoutButton {
+  position: absolute;
+  right: 0.5em;
+  top: 1em;
+}
+
+.add-product {
+  position: absolute;
+  right: 5em;
+  top: 1em;
+}
+
+.homeTag {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.homeTagLogout {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  position: relative;
+  bottom: 20px;
+}
+
+.homeForm {
+  position: absolute;
+  top: 1em;
+}
+
+.active-purple-4 input[type="text"]:focus:not([readonly]) {
+  border: 1px solid #ce93d8;
+  box-shadow: 0 0 0 1px #ce93d8;
+}
+
+.searchForm {
+  position: relative;
+  left: 8em;
+  top: 12px;
+}
+
+.searchFormButton {
+  position: relative;
+  left: 9em;
+  top: 12px;
+}
+
+.logoutTag {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.header {
+  background: #000 !important;
+}
+
+.headerText {
+  color: #fff !important;
+}

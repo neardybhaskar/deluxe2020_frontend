@@ -1,0 +1,43 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div [hidden]="!loggedIn">
+        <div>
+          <div *ngFor="let product of products" class="book-details">
+            <div class="book-box">
+              <a routerLink="/products/{{ product.id }}">
+                <img
+                  src="assets/images/books/{{ product.imageUrl }}"
+                  class="users-image"
+                />
+              </a>
+
+              <a routerLink="/products/{{ product.id }}">
+                <h1>{{ product.name }}</h1>
+              </a>
+              <div class="price">{{ product.unitPrice }}</div>
+              <a href="#" class="primary-btn">Add to Chart</a>
+            </div>
+          </div>
+          <div class="pagination-box">
+            <ngb-pagination
+              class="pagination-tag"
+              *ngIf="products?.length != 0"
+              [collectionSize]="totalElements"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              [rotate]="true"
+              [boundaryLinks]="true"
+              (pageChange)="getProductList()"
+            ></ngb-pagination>
+          </div>
+        </div>
+
+        <!-- If no product found -->
+        <div *ngIf="products?.length == 0">
+          <h2 class="productNotFound">No Product found.</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

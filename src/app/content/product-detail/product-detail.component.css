@@ -1,0 +1,16 @@
+.product-image {
+  width: 600px;
+}
+
+.product-content {
+  position: relative;
+  /* text-align: right;
+  padding-right: 100px; */
+  display: flex;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.product-content-text {
+  padding-left: 25px;
+}

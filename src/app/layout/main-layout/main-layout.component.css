@@ -1,0 +1,26 @@
+/* .content {
+    width: 100%;
+}*/
+
+.side-bar {
+  margin-left: -480px;
+  margin-top: -64px;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  margin-right: -1200px;
+  margin-top: -64px;
+}
