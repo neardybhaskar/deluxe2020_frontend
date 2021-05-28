@@ -1,0 +1,8 @@
+<div flexLayout="row" class="outer-container" fxFlex="100">
+  <div fxFlex="50%" class="side-bar" [hidden]="!loggedIn">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div fxFlex="300%" class="content" [hidden]="!loggedIn">
+    <router-outlet></router-outlet>
+  </div>
+</div>

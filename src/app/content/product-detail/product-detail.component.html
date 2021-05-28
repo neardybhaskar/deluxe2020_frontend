@@ -1,0 +1,18 @@
+<div>
+  <div class="productImage" class="product-content">
+    <img
+      src="assets/images/books/{{ products?.imageUrl }}"
+      class="product-image"
+    />
+    <div class="product-content-text">
+      <h3>{{ products?.name }}</h3>
+      <br /><br />
+      <p><b>Price: </b>{{ products?.unitPrice }}</p>
+      <p><b>Description: </b></p>
+      <p>{{ products?.description }}</p>
+    </div>
+  </div>
+  <div class="product-content">
+    <a routerLink="/products">Back to Product List</a>
+  </div>
+</div>

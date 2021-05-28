@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark header">
+  <div class="navbar-nav">
+    <div class="homeForm">
+      <a
+        *ngIf="!loggedIn"
+        class="nav-item nav-link homeTagLogout headerText"
+        routerLink="/"
+        >Home</a
+      >
+      <a
+        *ngIf="loggedIn"
+        class="nav-item nav-link homeTag headerText"
+        routerLink="/home"
+        >Home</a
+      >
+    </div>
+
+    <!-- Search form -->
+    <div class="active-purple-4 mb-4 searchForm">
+      <input
+        #searchInput
+        [hidden]="!loggedIn"
+        (keyup.enter)="doSearch(searchInput.value)"
+        class="form-control"
+        type="text"
+        placeholder="Search"
+        aria-label="Search"
+        style="width: 50em"
+      />
+    </div>
+    <div class="active-purple-4 mb-4 searchFormButton">
+      <button
+        (click)="doSearch(searchInput.value)"
+        [hidden]="!loggedIn"
+        class="btn btn-primary"
+      >
+        Search
+      </button>
+    </div>
+
+    <div class="add-product">
+      <a
+        [hidden]="userRole != 'ADMIN'"
+        routerLink="/addNewProduct"
+        class="nav-item nav-link logoutTag headerText"
+        
+        >Add Product</a
+      >
+    </div>
+
+    <div class="logoutButton">
+      <a
+        [hidden]="!loggedIn"
+        class="nav-item nav-link logoutTag headerText"
+        (click)="logout()"
+        >Logout</a
+      >
+    </div>
+  </div>
+</nav>
