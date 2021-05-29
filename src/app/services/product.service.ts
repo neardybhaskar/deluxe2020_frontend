@@ -100,6 +100,35 @@ export class ProductService {
 
     return this.http.get<GetResponseProducts>(url, { headers: headers });
   }
+
+  addProduct(
+    productName: string,
+    date: string,
+    price: number,
+    stock: number,
+    productCategory: number,
+    productDescription: string,
+  ) : Observable<any>{
+    let url =
+    `${this.commonVariables.URL_PREFIX}/addProduct`;
+
+    let productInfo = {
+      productName: productName,
+      addedDate: date,
+      price: price,
+      stock: stock,
+      productCategory: productCategory,
+      productDescription: productDescription,
+    }
+
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-auth-token': localStorage.getItem('xAuthToken'),
+      Authorization: localStorage.getItem('authenticate'),
+    });
+    return this.http.post(url, productInfo, { headers: header }).pipe();
+  }
+  
 }
 
 interface GetResponseProducts {

@@ -11,6 +11,8 @@ import { ProductListComponent } from '../content/product-list/product-list.compo
 import { ProductDetailComponent } from '../content/product-detail/product-detail.component';
 import { CommonVariables } from '../commons/common-variables';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddNewProductComponent } from '../content/add-new-product/add-new-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [MainLayoutComponent],
@@ -20,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     ProductListComponent,
     ProductDetailComponent,
+    AddNewProductComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +32,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     RouterModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [CommonVariables],
 })
