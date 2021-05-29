@@ -5,6 +5,7 @@ import { ProductCategoryService } from 'src/app/services/product-category.servic
 import { ProductService } from 'src/app/services/product.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-add-new-product',
@@ -12,12 +13,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-new-product.component.css']
 })
 export class AddNewProductComponent implements OnInit {
+
+  //For form validation
   newProductForm: FormGroup;
+
+  loggedIn = false;
+
+  //For loading style
   loading = false;
   submitted = false;
   productCategory : ProductCategory[];
+
+  //Check if product added then show added successfully page
   productAdded = false;
+
+  //Check if product already present already
   productNameExist = false;
+
+  //Compare userRole for displaying Add product page
   userRole = "USER";
 
   constructor(private formBuilder: FormBuilder,
@@ -26,6 +39,11 @@ export class AddNewProductComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    //If not authenticated then redirect to login page
+    if (localStorage.getItem('xAuthToken') == null) {
+      this.router.navigate(['/']);
+    }
+
     this.newProductForm = this.formBuilder.group(
       {
         productname: ['', Validators.required],
@@ -89,6 +107,8 @@ export class AddNewProductComponent implements OnInit {
     )
   }
 
+  //Navigate to home page when trying to access '/addNewProduct'
+  //without ADMIN role
   routeToHomePage() {
     this.router.navigate(['/home']).then(() => {
       location.reload();

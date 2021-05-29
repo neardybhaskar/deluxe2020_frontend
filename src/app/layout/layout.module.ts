@@ -13,6 +13,7 @@ import { CommonVariables } from '../commons/common-variables';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddNewProductComponent } from '../content/add-new-product/add-new-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
 @NgModule({
   exports: [MainLayoutComponent],
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ProductListComponent,
     ProductDetailComponent,
-    AddNewProductComponent
+    AddNewProductComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,

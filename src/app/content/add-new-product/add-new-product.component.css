@@ -62,11 +62,13 @@ p {
     margin-left: 1rem;
 }
 
+/* Product already present highlighter */
 .productNameExist {
     color: red;
     font-weight: bold;
 }
 
+/* Product added text on successfully adding product */
 .product-added-screen {
     left: 13%;
     top: 30%;

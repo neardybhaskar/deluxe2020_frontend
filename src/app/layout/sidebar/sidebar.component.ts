@@ -18,18 +18,18 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authenticationService
-      .checkSession()
-      .pipe()
-      .subscribe(
-        (res) => {
-          this.loggedIn = true;
-        },
-        (error) => {
-          this.loggedIn = false;
-          console.log(error);
-        }
-      );
+    // this.authenticationService
+    //   .checkSession()
+    //   .pipe()
+    //   .subscribe(
+    //     (res) => {
+    //       this.loggedIn = true;
+    //     },
+    //     (error) => {
+    //       this.loggedIn = false;
+    //       console.log(error);
+    //     }
+    //   );
 
     this.getProductCategory();
   }

@@ -6,7 +6,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { LoginRoutingModule } from './login-routing.module';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -18,7 +17,6 @@ import { LoginRoutingModule } from './login-routing.module';
     ReactiveFormsModule,
     HttpClientModule,
     MatSidenavModule,
-    LoginRoutingModule,
   ],
 })
 export class LoginModule {}

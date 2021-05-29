@@ -1,128 +1,130 @@
-<div class="new-product-container" [hidden]="userRole != 'ADMIN'">
-    <div [hidden]="productAdded">
-        <h3 class="product-heading">New Product Information</h3>
-        <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
-            <div class="product-name col-md-11">
-                <label >Product Name</label>
-                <input type="text" class="form-control" formControlName="productname"
-                placeholder="Product Name" required [ngClass]="{ 'is-invalid': submitted && f.productname.errors }">
+<div>
+    <div class="new-product-container" [hidden]="userRole != 'ADMIN'">
+        <div [hidden]="productAdded">
+            <h3 class="product-heading">New Product Information</h3>
+            <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
+                <div class="product-name col-md-11">
+                    <label >Product Name</label>
+                    <input type="text" class="form-control" formControlName="productname"
+                    placeholder="Product Name" required [ngClass]="{ 'is-invalid': submitted && f.productname.errors }">
 
-                <div *ngIf="productNameExist" class="productNameExist">Product name already exist</div>
+                    <div *ngIf="productNameExist" class="productNameExist">Product name already exist</div>
 
-                <div *ngIf="submitted && f.productname.errors && f.productname.touched" class="invalid-feedback">
-                    <div *ngIf="f.productname.errors.required">Product name is required</div>
-                    <div *ngIf="f.productname.errors.minlength">
-                        Min 6 character is required
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-row product-row">
-                <div class="date-added col-md-3 mb-3">
-                    <label >Date</label>
-                    <input type="date" class="form-control" formControlName="addedDate"
-                    placeholder="yyyy-MM-dd" min="2000-01-01" required [ngClass]="{ 'is-invalid': submitted && f.addedDate.errors }" />
-
-                    <div *ngIf="submitted && f.addedDate.errors && f.addedDate.touched" class="invalid-feedback">
-                        <div *ngIf="f.addedDate.errors.required">Product Date is required</div>
+                    <div *ngIf="submitted && f.productname.errors && f.productname.touched" class="invalid-feedback">
+                        <div *ngIf="f.productname.errors.required">Product name is required</div>
                         <div *ngIf="f.productname.errors.minlength">
-                        Min 6 character is required
-                    </div>
+                            Min 6 character is required
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-price col-md-4 mb-3">
-                    <label >Product Price</label>
-                    <input type="text" class="form-control" formControlName="productprice"
-                    placeholder="Product Price" required [ngClass]="{ 'is-invalid': submitted && f.productprice.errors }">
+                <div class="form-row product-row">
+                    <div class="date-added col-md-3 mb-3">
+                        <label >Date</label>
+                        <input type="date" class="form-control" formControlName="addedDate"
+                        placeholder="yyyy-MM-dd" min="2000-01-01" required [ngClass]="{ 'is-invalid': submitted && f.addedDate.errors }" />
 
-                    <div *ngIf="submitted && f.productprice.errors && f.productprice.touched" class="invalid-feedback">
-                        <div *ngIf="f.productprice.errors.required">Product Pice is required</div>
-                        <div *ngIf="f.productprice.errors.pattern">
+                        <div *ngIf="submitted && f.addedDate.errors && f.addedDate.touched" class="invalid-feedback">
+                            <div *ngIf="f.addedDate.errors.required">Product Date is required</div>
+                            <div *ngIf="f.productname.errors.minlength">
+                            Min 6 character is required
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="product-price col-md-4 mb-3">
+                        <label >Product Price</label>
+                        <input type="text" class="form-control" formControlName="productprice"
+                        placeholder="Product Price" required [ngClass]="{ 'is-invalid': submitted && f.productprice.errors }">
+
+                        <div *ngIf="submitted && f.productprice.errors && f.productprice.touched" class="invalid-feedback">
+                            <div *ngIf="f.productprice.errors.required">Product Pice is required</div>
+                            <div *ngIf="f.productprice.errors.pattern">
+                                Numbers Only
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-quantity col-md-4 mb-3">
+                        <label >Product Quantity</label>
+                        <input type="text" class="form-control" formControlName="productquantity"
+                        placeholder="Product Quantity" required [ngClass]="{ 'is-invalid': submitted && f.productquantity.errors }">
+
+                        <div *ngIf="submitted && f.productquantity.errors && f.productquantity.touched" class="invalid-feedback">
+                            <div *ngIf="f.productquantity.errors.required">Product Quantity is required</div>
+                            <div *ngIf="f.productprice.errors.pattern">
+                                Numbers Only
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-description col-md-11">
+                    <label >Product Description</label>
+                    <textarea type="text" class="form-control" formControlName="productdescription"
+                    placeholder="Product Desription" rows="4" required
+                    [ngClass]="{ 'is-invalid': submitted && f.productdescription.errors }"></textarea>
+
+                    <div *ngIf="submitted && f.productdescription.errors && f.productdescription.touched" class="invalid-feedback">
+                        <div *ngIf="f.productdescription.errors.required">Product Description is required</div>
+                        <div *ngIf="f.productdescription.errors.pattern">
                             Numbers Only
                         </div>
                     </div>
                 </div>
 
-                <div class="product-quantity col-md-4 mb-3">
-                    <label >Product Quantity</label>
-                    <input type="text" class="form-control" formControlName="productquantity"
-                    placeholder="Product Quantity" required [ngClass]="{ 'is-invalid': submitted && f.productquantity.errors }">
+                <div class="product-active col-md-3">
+                    <!-- <label >Product Active</label>
+                    <input type="checkbox" class="form-control form-check-input" formControlName="productactive"
+                    id="flexSwitchCheckChecked" required> -->
+                    <input type="checkbox form-control form-check-input" id="switch"
+                        class="checkbox" formControlName="productactive"/>
+                    <label for="switch" class="toggle"></label>
+                </div>
 
-                    <div *ngIf="submitted && f.productquantity.errors && f.productquantity.touched" class="invalid-feedback">
-                        <div *ngIf="f.productquantity.errors.required">Product Quantity is required</div>
-                        <div *ngIf="f.productprice.errors.pattern">
+                <div class="product-image col-md-3">
+                    <label >Product Image</label>
+                    <input type="file" class="form-control" 
+                    placeholder="Product Image" id="formFileMultiple" required formControlName="productimage"
+                    [ngClass]="{ 'is-invalid': submitted && f.productimage.errors }">
+
+                    <div *ngIf="submitted && f.productimage.errors && f.productimage.touched" class="invalid-feedback">
+                        <div *ngIf="f.productimage.errors.required">Product Image is required</div>
+                    </div>
+                </div>
+
+                <div class="product-image col-md-3">
+                    <label >Product Category</label>
+                    <select style="width: 100%;" formControlName="productcategory"
+                    [ngClass]="{ 'is-invalid': submitted && f.productcategory.errors }">
+                        <option *ngFor="let products of productCategory" value="{{products.id}}">{{products.categoryName}}</option>
+                    </select>
+
+                    <div *ngIf="submitted && f.productcategory.errors && f.productcategory.touched" class="invalid-feedback">
+                        <div *ngIf="f.productcategory.errors.required">Product Category is required</div>
+                        <div *ngIf="f.productcategory.errors.pattern">
                             Numbers Only
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="product-description col-md-11">
-                <label >Product Description</label>
-                <textarea type="text" class="form-control" formControlName="productdescription"
-                placeholder="Product Desription" rows="4" required
-                [ngClass]="{ 'is-invalid': submitted && f.productdescription.errors }"></textarea>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span
+                    *ngIf="loading"
+                    class="spinner-border spinner-border-sm mr-1"
+                    ></span>
+                    Add
+                </button>
 
-                <div *ngIf="submitted && f.productdescription.errors && f.productdescription.touched" class="invalid-feedback">
-                    <div *ngIf="f.productdescription.errors.required">Product Description is required</div>
-                    <div *ngIf="f.productdescription.errors.pattern">
-                        Numbers Only
-                    </div>
-                </div>
-            </div>
+            </form>
+        </div>
 
-            <div class="product-active col-md-3">
-                <!-- <label >Product Active</label>
-                <input type="checkbox" class="form-control form-check-input" formControlName="productactive"
-                id="flexSwitchCheckChecked" required> -->
-                <input type="checkbox form-control form-check-input" id="switch"
-                    class="checkbox" formControlName="productactive"/>
-                <label for="switch" class="toggle"></label>
-            </div>
-
-            <div class="product-image col-md-3">
-                <label >Product Image</label>
-                <input type="file" class="form-control" 
-                placeholder="Product Image" id="formFileMultiple" required formControlName="productimage"
-                [ngClass]="{ 'is-invalid': submitted && f.productimage.errors }">
-
-                <div *ngIf="submitted && f.productimage.errors && f.productimage.touched" class="invalid-feedback">
-                    <div *ngIf="f.productimage.errors.required">Product Image is required</div>
-                </div>
-            </div>
-
-            <div class="product-image col-md-3">
-                <label >Product Category</label>
-                <select style="width: 100%;" formControlName="productcategory"
-                [ngClass]="{ 'is-invalid': submitted && f.productcategory.errors }">
-                    <option *ngFor="let products of productCategory" value="{{products.id}}">{{products.categoryName}}</option>
-                  </select>
-
-                  <div *ngIf="submitted && f.productcategory.errors && f.productcategory.touched" class="invalid-feedback">
-                    <div *ngIf="f.productcategory.errors.required">Product Category is required</div>
-                    <div *ngIf="f.productcategory.errors.pattern">
-                        Numbers Only
-                    </div>
-                </div>
-            </div>
-
-            <button [disabled]="loading" class="btn btn-primary">
-                <span
-                  *ngIf="loading"
-                  class="spinner-border spinner-border-sm mr-1"
-                ></span>
-                Add
-              </button>
-
-        </form>
+        <div [hidden]="!productAdded" class="product-added-screen">
+            <h1>Product added Successfully</h1>
+        </div>
     </div>
 
-    <div [hidden]="!productAdded" class="product-added-screen">
-        <h1>Product added Successfully</h1>
+    <div *ngIf="userRole != 'ADMIN'">
+        {{ routeToHomePage() }}
     </div>
-</div>
-
-<div *ngIf="userRole != 'ADMIN'">
-    {{ routeToHomePage() }}
 </div>

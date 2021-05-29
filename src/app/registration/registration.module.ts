@@ -6,7 +6,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { RegistrationRoutingModule } from './registration-routing.module';
 
 @NgModule({
   declarations: [RegistrationComponent],
@@ -18,7 +17,6 @@ import { RegistrationRoutingModule } from './registration-routing.module';
     ReactiveFormsModule,
     HttpClientModule,
     MatSidenavModule,
-    RegistrationRoutingModule,
   ],
 })
 export class RegistrationModule {}
