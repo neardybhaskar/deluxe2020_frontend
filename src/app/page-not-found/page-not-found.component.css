@@ -1,5 +1,14 @@
 .heading-page-not-found h1 {
     text-align: center;
+    font-weight: bold;
+    font-size: 7rem;
+    margin-top: -3.5rem;
+}
+
+.heading-page-not-found h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: -1rem;
 }
 
 .page-not-found-image {

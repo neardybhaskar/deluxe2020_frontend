@@ -84,7 +84,7 @@
 
                 <div class="product-image col-md-3">
                     <label >Product Image</label>
-                    <input type="file" class="form-control" 
+                    <input type="file" class="form-control" (change)="uploadImageService.imageChangeEvent($event)"
                     placeholder="Product Image" id="formFileMultiple" required formControlName="productimage"
                     [ngClass]="{ 'is-invalid': submitted && f.productimage.errors }">
 

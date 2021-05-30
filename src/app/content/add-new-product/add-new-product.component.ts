@@ -6,6 +6,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UploadImageService } from 'src/app/services/upload-image.service';
 
 @Component({
   selector: 'app-add-new-product',
@@ -36,7 +37,8 @@ export class AddNewProductComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private productCategoryService: ProductCategoryService,
     private productService: ProductService,
-    private router: Router) { }
+    private router: Router,
+    public uploadImageService: UploadImageService) { }
 
   ngOnInit(): void {
     //If not authenticated then redirect to login page
@@ -85,6 +87,12 @@ export class AddNewProductComponent implements OnInit {
       (data) => {
         this.loading = false;
         this.productAdded = true;
+        this.uploadImageService.uploadImage(data.id, data.productCategoryId).subscribe(data => {
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
       },
       (error) => {
         console.log(error);
