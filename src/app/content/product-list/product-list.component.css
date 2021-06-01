@@ -17,7 +17,8 @@
 }
 
 .book-box img {
-  width: 150px;
+  width: 200px;
+  height: 200px;
 }
 
 .productNotFound {
@@ -30,7 +31,7 @@
 .pagination-box {
   position: absolute;
   z-index: 15;
-  top: 65%;
+  top: 50%;
   left: 65%;
   margin: -100px 0 0 -150px;
 }

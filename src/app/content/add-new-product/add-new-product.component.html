@@ -2,7 +2,7 @@
     <div class="new-product-container" [hidden]="userRole != 'ADMIN'">
         <div [hidden]="productAdded">
             <h3 class="product-heading">New Product Information</h3>
-            <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
                 <div class="product-name col-md-11">
                     <label >Product Name</label>
                     <input type="text" class="form-control" formControlName="productname"

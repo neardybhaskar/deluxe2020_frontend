@@ -31,7 +31,6 @@ export class UploadImageService {
     }
 
     let header = new HttpHeaders({
-      'Content-Type': 'application/json',
       'x-auth-token': localStorage.getItem('xAuthToken'),
       Authorization: localStorage.getItem('authenticate'),
     });

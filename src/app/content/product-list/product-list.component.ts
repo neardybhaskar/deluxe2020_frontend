@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppConst } from 'src/app/commons/constant/app-const';
 import { Product } from 'src/app/commons/product';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -14,6 +15,7 @@ export class ProductListComponent implements OnInit {
   searchMode: boolean;
   productSearchAsCategory: boolean;
   products: Product[];
+  serverPath = AppConst.serverPath;
 
   page = 1;
   pageSize = 15;

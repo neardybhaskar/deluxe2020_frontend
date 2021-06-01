@@ -4,6 +4,7 @@ import { Product } from 'src/app/commons/product';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Location } from '@angular/common';
+import { AppConst } from 'src/app/commons/constant/app-const';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,6 +13,7 @@ import { Location } from '@angular/common';
 })
 export class ProductDetailComponent implements OnInit {
   loggedIn = false;
+  serverPath = AppConst.serverPath;
 
   constructor(
     private route: ActivatedRoute,

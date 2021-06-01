@@ -1,7 +1,7 @@
 <div>
   <div class="productImage" class="product-content">
     <img
-      src="assets/images/books/{{ products?.imageUrl }}"
+      src="{{serverPath}}/images/product/{{products.imageUrl}}"
       class="product-image"
     />
     <div class="product-content-text">
@@ -13,6 +13,7 @@
     </div>
   </div>
   <div class="product-content">
-    <a routerLink="/products">Back to Product List</a>
+    <!-- <a routerLink="/products">Back to Product List</a> -->
+    <a href="javascript:;" (click)="navigateToBackPage()">Back to Product List</a>
   </div>
 </div>
