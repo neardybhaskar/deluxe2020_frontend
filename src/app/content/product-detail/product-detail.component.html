@@ -1,16 +1,40 @@
 <div>
   <div class="productImage" class="product-content">
-    <img
-      src="{{serverPath}}/images/product/{{products.imageUrl}}"
-      class="product-image"
-    />
-    <div class="product-content-text">
+    <img src="{{serverPath}}/images/product/{{products.imageUrl}}" class="product-image" />
+    <div class="product-content-text col-7">
       <h3>{{ products?.name }}</h3>
       <br /><br />
-      <p><b>Price: </b>{{ products?.unitPrice }}</p>
+      <p><b>Category: </b><a routerLink="/productsAsPerCategory/{{ productCategory?.id }}">{{
+          productCategory?.categoryName }}</a></p>
       <p><b>Description: </b></p>
       <p>{{ products?.description }}</p>
     </div>
+
+    <div class="panel panel-default ">
+      <div class="panel-body product-price">
+        <div class="price-span">
+          <h5>Our Price: <span style="color: #db3208;">₹<span>
+                {{products?.unitPrice | number : '1.2-2'}}</span></span></h5>
+          <p>List Price: <span style="text-decoration:line-through;">₹<span>{{products?.unitPrice + products?.unitPrice * 20 / 100 | number :
+                '1.2-2'}}</span></span>
+          </p>
+          <p>You Save: ₹<span>{{products?.unitPrice * 20 / 100 | number : '1.2-2'}}</span></p>
+          <span>Qty: </span>
+          <!-- <select [(ngModel)]="qty" class="browser-default" style="width:50px; display:inline;">
+                                <option *ngFor="let x of numberList" [ngValue]="x">{{x}}</option>
+                            </select> -->
+        </div>
+        <div class="stock-span">
+          <h5 *ngIf="products.unitsInStock>=10" style="color:green;">In Stock</h5>
+          <h5 *ngIf="products.unitsInStock<10 && products.unitsInStock>0" style="color:green;">Only
+            <span>{{products.unitsInStock}}</span> In Stock
+          </h5>
+          <h5 *ngIf="products.unitsInStock==0" style="color:darkred;">Unavailable</h5>
+          <button md-raised-button [disabled]="products.unitsInStock==0" class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="product-content">
     <!-- <a routerLink="/products">Back to Product List</a> -->

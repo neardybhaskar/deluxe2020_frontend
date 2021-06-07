@@ -51,7 +51,7 @@ export class ProductService {
   //Returns the product details as per their id, used when
   //navigating to product-detail page of particular id
   getProductDetails(productId: string): Observable<any> {
-    let url = `${this.commonVariables.URL_PREFIX}/products/${productId}`;
+    let url = `${this.commonVariables.URL_PREFIX}/product/productCategoryName/${productId}`;
 
     let headers = new HttpHeaders({
       'x-auth-token': localStorage.getItem('xAuthToken'),

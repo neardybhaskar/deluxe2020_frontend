@@ -1,6 +1,6 @@
 .product-image {
-  width: 600px;
-  height: 600px;
+  max-width: 231px;
+  max-height: 346px;
 }
 
 .product-content {
@@ -15,3 +15,23 @@
 .product-content-text {
   padding-left: 25px;
 }
+
+.price {
+  color: darkred;
+  font-weight: bold;
+}
+
+.product-price {
+  border:5px darkgrey solid;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.price-span {
+  margin: 20px;
+}
+
+.stock-span {
+  margin-bottom: 20px;
+}
+

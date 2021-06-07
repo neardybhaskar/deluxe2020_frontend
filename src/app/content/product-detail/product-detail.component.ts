@@ -5,6 +5,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Location } from '@angular/common';
 import { AppConst } from 'src/app/commons/constant/app-const';
+import { ProductCategory } from 'src/app/commons/product-category';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,6 +15,7 @@ import { AppConst } from 'src/app/commons/constant/app-const';
 export class ProductDetailComponent implements OnInit {
   loggedIn = false;
   serverPath = AppConst.serverPath;
+  productCategory: ProductCategory = new ProductCategory();
 
   constructor(
     private route: ActivatedRoute,
@@ -47,7 +49,11 @@ export class ProductDetailComponent implements OnInit {
       .getProductDetails(this.route.snapshot.paramMap.get('productId'))
       .subscribe(
         (data) => {
-          this.products = data;
+          //Fetch product from product and productCategoryName json object
+          this.products = data['product'];
+
+          //Fetch productCategoryName from product and productCategoryName json object
+          this.productCategory = data['productCategory'];
         },
         (error) => {
           console.log(error);
