@@ -6,6 +6,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { Location } from '@angular/common';
 import { AppConst } from 'src/app/commons/constant/app-const';
 import { ProductCategory } from 'src/app/commons/product-category';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,12 +17,14 @@ export class ProductDetailComponent implements OnInit {
   loggedIn = false;
   serverPath = AppConst.serverPath;
   productCategory: ProductCategory = new ProductCategory();
+  quantity: number;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private authenticationService: AuthenticationService,
-    private _location: Location
+    private _location: Location,
+    private shoppingCartService: ShoppingCartService
   ) {}
 
   ngOnInit(): void {
@@ -63,5 +66,17 @@ export class ProductDetailComponent implements OnInit {
 
   navigateToBackPage() {
     this._location.back();
+  }
+
+  onAddToCart() {
+    this.shoppingCartService.onAddToCart(this.quantity, this.products.id)
+    .subscribe(
+      (data) => {
+
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

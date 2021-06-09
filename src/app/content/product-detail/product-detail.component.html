@@ -20,6 +20,7 @@
           </p>
           <p>You Save: ₹<span>{{products?.unitPrice * 20 / 100 | number : '1.2-2'}}</span></p>
           <span>Qty: </span>
+          <input type="text" [(ngModel)]="quantity" class="product-quantity" placeholder="Quantity" required>
           <!-- <select [(ngModel)]="qty" class="browser-default" style="width:50px; display:inline;">
                                 <option *ngFor="let x of numberList" [ngValue]="x">{{x}}</option>
                             </select> -->
@@ -30,7 +31,7 @@
             <span>{{products.unitsInStock}}</span> In Stock
           </h5>
           <h5 *ngIf="products.unitsInStock==0" style="color:darkred;">Unavailable</h5>
-          <button md-raised-button [disabled]="products.unitsInStock==0" class="btn btn-primary">Add to Cart</button>
+          <button md-raised-button (click)="onAddToCart()" [disabled]="products.unitsInStock==0" class="btn btn-primary">Add to Cart</button>
         </div>
       </div>
     </div>

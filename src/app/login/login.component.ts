@@ -64,7 +64,8 @@ export class LoginComponent implements OnInit {
         (data) => {
           this.token = data['token'];
           localStorage.setItem('xAuthToken', this.token);
-          localStorage.setItem('userRole',data['userRole'])
+          localStorage.setItem('userRole',data['userRole']);
+          localStorage.setItem('userId',data['userId']);
           this.loading = false;
           this.loggedIn = true;
 
