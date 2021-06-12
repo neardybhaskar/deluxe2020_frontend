@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { NavigationEnd, Router } from '@angular/router';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,10 +11,13 @@ import { NavigationEnd, Router } from '@angular/router';
 export class NavBarComponent implements OnInit {
   loggedIn = false;
   userRole = 'USER';
+  userId: any;
+  cartProductsCount: any = 0;
 
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private shoppingCartServices: ShoppingCartService,
   ) {}
 
   ngOnInit(): void {
@@ -21,6 +25,9 @@ export class NavBarComponent implements OnInit {
       (res) => {
         this.loggedIn = true;
         this.userRole = localStorage.getItem("userRole");
+        this.userId = localStorage.getItem("userId");
+        this.getCartItemCount();
+        //this.cartProductsCount = this.shoppingCartServices.getCartData();
       },
       (error) => {
         this.loggedIn = false;
@@ -69,4 +76,20 @@ export class NavBarComponent implements OnInit {
   doSearch(searchText: string) {
     this.router.navigateByUrl(`/search/${searchText}`);
   }
+
+  getCartItemCount() {
+    this.shoppingCartServices.getCartItemCount(this.userId).subscribe(
+      (data) => {
+        this.cartProductsCount = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  update() {
+
+  }
+
 }

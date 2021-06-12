@@ -47,6 +47,10 @@
       >
     </div>
 
+    <div class="shopping-cart">
+      <h4 [hidden]="!loggedIn" (click)="update()">{{cartProductsCount}}</h4>
+    </div>
+
     <div class="logoutButton">
       <a
         [hidden]="!loggedIn"

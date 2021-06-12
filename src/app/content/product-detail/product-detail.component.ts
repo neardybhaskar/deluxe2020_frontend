@@ -24,7 +24,7 @@ export class ProductDetailComponent implements OnInit {
     private productService: ProductService,
     private authenticationService: AuthenticationService,
     private _location: Location,
-    private shoppingCartService: ShoppingCartService
+    private shoppingCartService: ShoppingCartService,
   ) {}
 
   ngOnInit(): void {
@@ -69,14 +69,19 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onAddToCart() {
-    this.shoppingCartService.onAddToCart(this.quantity, this.products.id)
+    if(this.quantity <= 0) {
+      this.quantity = null;
+    } else {
+      this.shoppingCartService.onAddToCart(this.quantity, this.products.id)
     .subscribe(
       (data) => {
-
+        this.quantity = null;
+        location.reload();
       },
       (error) => {
         console.log(error);
       }
     );
+    }
   }
 }

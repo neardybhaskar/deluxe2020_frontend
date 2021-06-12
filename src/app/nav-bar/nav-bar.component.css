@@ -6,7 +6,7 @@
 
 .add-product {
   position: absolute;
-  right: 5em;
+  right: 14em;
   top: 1em;
 }
 
@@ -59,4 +59,11 @@
 
 .headerText {
   color: #fff !important;
+}
+
+.shopping-cart {
+  color: white;
+  position: absolute;
+  right: 9em;
+  top: 1em;
 }
