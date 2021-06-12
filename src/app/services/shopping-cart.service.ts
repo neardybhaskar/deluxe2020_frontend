@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CommonVariables } from '../commons/common-variables';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +42,28 @@ export class ShoppingCartService {
       Authorization: localStorage.getItem('authenticate'),
     });
     return this.http.post(url, userId, {headers: header});
+  }
+
+  getUserCartItems(uId: any) {
+    let url = `${this.commonVariables.URL_PREFIX}/cartItem/list/${uId}`;
+
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-auth-token': localStorage.getItem('xAuthToken'),
+      Authorization: localStorage.getItem('authenticate'),
+    });
+    return this.http.get(url, {headers: header});
+  }
+
+  deleteItem(cartItemId: any) {
+    let url = `${this.commonVariables.URL_PREFIX}/cartItem/delete/${cartItemId}`;
+
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-auth-token': localStorage.getItem('xAuthToken'),
+      Authorization: localStorage.getItem('authenticate'),
+    });
+    return this.http.delete(url, {headers: header});
   }
 
 }

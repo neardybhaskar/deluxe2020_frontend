@@ -4,6 +4,7 @@ import { AddNewProductComponent } from './content/add-new-product/add-new-produc
 import { HomeComponent } from './content/home/home.component';
 import { ProductDetailComponent } from './content/product-detail/product-detail.component';
 import { ProductListComponent } from './content/product-list/product-list.component';
+import { ShoppingCartItemsComponent } from './content/shopping-cart-items/shopping-cart-items.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -56,6 +57,11 @@ const routes: Routes = [
     path: 'addNewProduct',
     component: MainLayoutComponent,
     children: [{ path: '', component: AddNewProductComponent }],
+  },
+  {
+    path: 'shoppingCartItems',
+    component: MainLayoutComponent,
+    children: [{path: '', component: ShoppingCartItemsComponent}]
   },
   {
     path: '**',

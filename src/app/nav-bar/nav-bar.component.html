@@ -25,7 +25,7 @@
         type="text"
         placeholder="Search"
         aria-label="Search"
-        style="width: 50em"
+        style="width: 45em"
       />
     </div>
     <div class="active-purple-4 mb-4 searchFormButton">
@@ -47,8 +47,11 @@
       >
     </div>
 
-    <div class="shopping-cart">
-      <h4 [hidden]="!loggedIn" (click)="update()">{{cartProductsCount}}</h4>
+    <div class="shopping-cart" [hidden]="!loggedIn">
+      <a (click)="goToShoppingCartItemPage()">
+        <h5 >{{cartProductsCount}}</h5>
+        <img src="/assets/images/others/cart.png" class = "shopping-cart-image">
+      </a>
     </div>
 
     <div class="logoutButton">

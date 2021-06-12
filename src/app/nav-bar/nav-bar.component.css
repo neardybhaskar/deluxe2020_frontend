@@ -66,4 +66,36 @@
   position: absolute;
   right: 9em;
   top: 1em;
+  cursor: pointer;
+}
+
+.shopping-cart-image {
+  height: 40px;
+  width: 40px;
+  margin-top: -20px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+}
+
+.shopping-cart h5 {
+  color: white;
+}
+
+.shopping-cart h5:hover {
+  text-decoration: none !important;
+}
+
+.shopping-cart h5:link {
+  text-decoration: none !important;
+}
+
+.shopping-cart h5:visited {
+  text-decoration: none !important;
+}
+
+.shopping-cart h5:active {
+  text-decoration: none !important;
 }

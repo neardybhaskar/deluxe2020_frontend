@@ -1,0 +1,52 @@
+<div class="cart-items">
+    <div class="cart-item-present" *ngIf="subTotalCost > 0">
+        <div class="cart-item-header">
+            <div class="col-md-10">
+                <h1 class="shopping-cart-header">Shopping Cart</h1>
+            </div>
+            <div class="col-md-3">
+                <h4 class="shopping-cart-price-header">Price</h4>
+            </div>
+        </div>
+        <div class="cart-item-list" *ngFor="let cartItem of cartItems">
+            
+            <div class="col-md-2 cart-per-item">
+                <img src="{{serverPath}}/images/product/{{cartItem.value.imageUrl}}" class="cart-item-image" />
+            </div>
+            <div class="col-md-8 cart-per-item">
+                <h3>{{cartItem.value.name}}</h3>
+                <div class="item-instock-span col-md-4">
+                    <h5 *ngIf="cartItem.value.unitsInStock>10" style="color:green;">In Stock</h5>
+                    <h5 *ngIf="cartItem.value.unitsInStock<10 && cartItem.value.unitsInStock>0" style="color:green;">Only
+                      <span>{{cartItem.value.unitsInStock}}</span> In Stock
+                    </h5>
+                    <h5 *ngIf="cartItem.value.unitsInStock==0" style="color:darkred;">Unavailable</h5>
+                </div>
+
+                <div class="item-ops-span ">
+                    <div class="col-md-2 item-ops-span-element item-ops-span-element-first">
+                        <h5 >Qty: <b>{{cartItem.key.quantity}}</b></h5>
+                    </div>
+                    <div class="col-md-2 item-ops-span-element">
+                        <a (click)="deleteItem(cartItem.key.id)" >Delete</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 cart-per-item">
+                <h4>₹{{cartItem.key.grandTotal}}</h4>
+            </div>
+        </div>
+        <div class="subtotal-cost">
+            <div class="col-md-9 subtotal-cost-element">
+            </div>
+            <div class="col-md-3 subtotal-cost-element">
+                <h3>Subtotal: <b>₹{{subTotalCost}}</b></h3>
+            </div>
+        </div>
+    </div>
+    <div class="no-items-on-cart" [hidden]="subTotalCost > 0">
+        <h1>No items in Cart</h1>
+        <img src="/assets//images/others/empty-cart.png" />
+    </div>
+  </div>

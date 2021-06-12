@@ -88,8 +88,8 @@ export class NavBarComponent implements OnInit {
     )
   }
 
-  update() {
-
+  goToShoppingCartItemPage() {
+    this.router.navigate([`/shoppingCartItems`]);
   }
 
 }
