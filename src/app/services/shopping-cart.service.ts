@@ -16,7 +16,7 @@ export class ShoppingCartService {
   ) { }
 
   onAddToCart(quantity: number, productId: any) {
-    let url = `${this.commonVariables.URL_PREFIX}/cart/add`;
+    let url = `${this.commonVariables.URL_PREFIX}/cart/addItem`;
     let cartInfo = {
       quantity: quantity,
       productId: productId,

@@ -6,3 +6,8 @@
     width: 1200px;
     height: 800px;
 } */
+
+.product-background {
+  width: 1200px !important;
+  height: 550px !important;
+}
